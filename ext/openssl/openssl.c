@@ -1064,6 +1064,8 @@ PHP_MINIT_FUNCTION(openssl)
 	le_x509 = zend_register_list_destructors_ex(php_x509_free, NULL, "OpenSSL X.509", module_number);
 	le_csr = zend_register_list_destructors_ex(php_csr_free, NULL, "OpenSSL X.509 CSR", module_number);
 
+
+	OPENSSL_config(NULL);
 	SSL_library_init();
 	OpenSSL_add_all_ciphers();
 	OpenSSL_add_all_digests();
